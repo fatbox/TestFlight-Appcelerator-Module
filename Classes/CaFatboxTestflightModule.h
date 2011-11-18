@@ -10,6 +10,4 @@
 {
 }
 
-//@property(nonatomic,readwrite,assign) NSString* exampleProp;
-
 @end

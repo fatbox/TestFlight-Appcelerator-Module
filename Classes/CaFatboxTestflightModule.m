@@ -89,15 +89,24 @@
 #pragma Public APIs
 
 -(void)takeOff:(id)args {
-	// example method
- //  NSString *value = [TiUtils stringValue:args];
-  NSString *value = [args objectAtIndex:0];
-  NSLog(@"[INFO] %@ ",value);
-  [TestFlight takeOff:value];
+    NSString *token = [args objectAtIndex:0];
+    NSLog(@"[INFO] TestFlight takeOff (%@)", token);
+    [TestFlight takeOff:token];
 }
 
--(void)explode:(id)args {
-  [NSException raise:@"Exploding on purpose" format:@"explodinator"];
+-(void)testException:(id)args {
+     [NSException raise:@"Test" format:@"Testing Exceptions with TestFlight"];
+}
+
+-(void)passCheckpoint:(id)args {
+    NSString *checkPoint = [args objectAtIndex:0];
+    NSLog(@"[INFO] TestFlight Checkpoint: (%@)", checkPoint);
+    [TestFlight passCheckpoint:checkPoint];
+}
+
+-(void)launchFeedback:(id)args {
+    NSLog(@"[INFO] TestFlight opening feedback view");
+    [TestFlight openFeedbackView];
 }
 
 @end

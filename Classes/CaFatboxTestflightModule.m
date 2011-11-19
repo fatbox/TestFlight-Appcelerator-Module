@@ -98,8 +98,9 @@
 
 #pragma Public APIs
 
--(void)takeOff:(id)args {
-    NSString *token = [args objectAtIndex:0];
+-(void)takeOff:(id)token {
+    ENSURE_UI_THREAD_1_ARG(token);
+    ENSURE_SINGLE_ARG(token, NSString);
     NSLog(@"[INFO] TestFlight takeOff (%@)", token);
     [TestFlight takeOff:token];
 }
@@ -108,14 +109,15 @@
      [NSException raise:@"Test" format:@"Testing Exceptions with TestFlight"];
 }
 
--(void)passCheckpoint:(id)args {
-    NSString *checkPoint = [args objectAtIndex:0];
+-(void)passCheckpoint:(id)checkPoint {
+    ENSURE_SINGLE_ARG(checkPoint, NSString)
     NSLog(@"[INFO] TestFlight Checkpoint: (%@)", checkPoint);
     [TestFlight passCheckpoint:checkPoint];
 }
 
 -(void)launchFeedback:(id)args {
     NSLog(@"[INFO] TestFlight opening feedback view");
+    ENSURE_UI_THREAD_0_ARGS
     [TestFlight openFeedbackView];
 }
 

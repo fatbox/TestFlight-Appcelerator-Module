@@ -29,23 +29,21 @@ testflight.takeOff("e8a0c50bdbe05f4d032addfb23863a40_Mzk3MTIyMDExLTExLTE4IDE0OjM
 
 // Create some simple controls to test things out.
 var window = Ti.UI.createWindow({
-	backgroundColor:'white'
+  backgroundColor:'white'
 });
+
 var view = Ti.UI.createView({
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    layout: 'vertical'
+  layout: 'vertical'
 });
 
 var buttonFactory = function(label) {
-    return Ti.UI.createButton({
-        top: 10,
-        left: 10,
-        right: 10,
-        text: label
-    });
+  return Ti.UI.createButton({
+    top:10,
+    height:40,
+    width:200,
+    title:label,
+    color:'#fad'
+  });
 };
 
 var button1 = buttonFactory("Pass checkpoint");

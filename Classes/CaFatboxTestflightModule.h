@@ -20,4 +20,9 @@
 {
 }
 
+-(void)takeOff:(id)token;
+-(void)testException:(id)args;
+-(void)passCheckpoint:(id)checkPoint;
+-(void)launchFeedback:(id)args;
+
 @end
